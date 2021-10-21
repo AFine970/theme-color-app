@@ -1,11 +1,13 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import ColorPick from './components/ColorPicker.vue'
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <h1>Hello Vue 3 + Vite</h1>
+  <ColorPick></ColorPick>
 </template>
 
 <style lang="less">
