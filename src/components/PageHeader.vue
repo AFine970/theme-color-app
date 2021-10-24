@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import changeColor from "../util/changeColor";
+import { changeColor, setStorageColor } from "../util/colorUtil";
 
 export default defineComponent({
   setup() {
@@ -31,17 +31,16 @@ export default defineComponent({
 
   methods: {
     handlePick(value: string) {
-      changeColor('--theme-color', value);
+      changeColor("--theme-color", value);
     },
 
     handleSwitch(value: boolean) {
-      if (value) {
-        changeColor('--theme-color', '#111');
-        changeColor('--theme-font-color', '#fff');
-      } else {
-        changeColor('--theme-color', '#fff');
-        changeColor('--theme-font-color', '#111');
-      }
+      const themeColor = value ? "#111" : "#fff";
+      const themeFontColor = value ? "#fff" : "#111";
+      changeColor("--theme-color", themeColor);
+      changeColor("--theme-font-color", themeFontColor);
+      setStorageColor("--theme-color", themeColor);
+      setStorageColor("--theme-font-color", themeFontColor);
     },
   },
 });
